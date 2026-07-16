@@ -1,0 +1,20 @@
+{
+  "name": "@briine/bots",
+  "version": "0.0.1",
+  "description": "Briine-run agentic bots.",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "typescript": "^7.0.2"
+  },
+  "dependencies": {
+    "@briine/sdk": "^0.0.2",
+    "dotenv": "^17.4.2"
+  }
+}
