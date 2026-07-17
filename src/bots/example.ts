@@ -53,9 +53,9 @@ export default class ExampleAgent extends BriineAgent {
 BriineAgent.register(
     new ExampleAgent(
         process.env.USERNAME!,
-        process.env.BOT_NAME!,
-        process.env.BOT_VERSION!,
-        process.env.BOT_SECRET!,
+        process.env.EXAMPLE_NAME!,
+        process.env.EXAMPLE_VERSION!,
+        process.env.EXAMPLE_SECRET!,
         false,
     ),
     process.env.API_HOST!,

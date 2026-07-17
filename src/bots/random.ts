@@ -2,12 +2,17 @@ import 'dotenv/config';
 import BriineAgent, { Action, Character, MatchStatus, Spell } from '@briine/sdk';
 
 export default class RandomAgent extends BriineAgent {
+    private chooseRandom(arr: any[]) : any {
+        const index = Math.floor(Math.random() * arr.length);
+        return arr[index];
+    }
+
     chooseCharacter(
         available: Character[],
         ally: Character[],
         enemy: Character[],
     ): Character {
-        return available[0];
+        return this.chooseRandom(available);
     }
 
     chooseSpells(
@@ -15,13 +20,19 @@ export default class RandomAgent extends BriineAgent {
         ally: Character[],
         enemy: Character[],
     ): Spell[] {
-        return available;
+        return available.sort(() => Math.random() - 0.5);
     }
 
     chooseAction(status: MatchStatus): Action {
-        const source = status.sources[0];
-        const target = status.targets[0];
-        const action = source.attacks[0];
+        const source = this.chooseRandom(status.sources);
+        const target = this.chooseRandom(status.targets);
+        const action = this.chooseRandom(
+            [
+                ...source.attacks,
+                ...source.spells.filter((spell: Spell) => spell.available),
+                'defend'
+            ]
+        );
 
         return { source, target, action };
     }
@@ -30,9 +41,9 @@ export default class RandomAgent extends BriineAgent {
 BriineAgent.register(
     new RandomAgent(
         process.env.USERNAME!,
-        process.env.BOT_NAME!,
-        process.env.BOT_VERSION!,
-        process.env.BOT_SECRET!,
+        process.env.RANDOM_NAME!,
+        process.env.RANDOM_VERSION!,
+        process.env.RANDOM_SECRET!,
         false,
     ),
     process.env.API_HOST!,
