@@ -44,7 +44,7 @@ BriineAgent.register(
         process.env.RANDOM_NAME!,
         process.env.RANDOM_VERSION!,
         process.env.RANDOM_SECRET!,
-        false,
+        true,
     ),
     process.env.API_HOST!,
 );

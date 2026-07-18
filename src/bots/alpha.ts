@@ -226,7 +226,7 @@ BriineAgent.register(
         process.env.ALPHA_NAME!,
         process.env.ALPHA_VERSION!,
         process.env.ALPHA_SECRET!,
-        false,
+        true,
     ),
     process.env.API_HOST!,
 );

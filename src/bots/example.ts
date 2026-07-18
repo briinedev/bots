@@ -56,7 +56,7 @@ BriineAgent.register(
         process.env.EXAMPLE_NAME!,
         process.env.EXAMPLE_VERSION!,
         process.env.EXAMPLE_SECRET!,
-        false,
+        true,
     ),
     process.env.API_HOST!,
 );
