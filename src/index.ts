@@ -1,14 +1,3 @@
-export { default as ExampleAgent } from './bots/example.js';
-export { default as RandomAgent } from './bots/random.js';
-export { default as ApexPredatorAgent } from './bots/apex-predator.js';
-export { default as TempoRushAgent } from './bots/tempo-rush.js';
-export { default as SustainOracleAgent } from './bots/sustain-oracle.js';
-export { default as StackEconomistAgent } from './bots/stack-economist.js';
-export { default as ElementalCounterAgent } from './bots/elemental-counter.js';
-export { default as ControlWeaverAgent } from './bots/control-weaver.js';
-export { default as AssassinSnowballAgent } from './bots/assassin-snowball.js';
-export { default as BulwarkCommanderAgent } from './bots/bulwark-commander.js';
-export { default as AoeOverrunAgent } from './bots/aoe-overrun.js';
-export { default as OpportunistFinisherAgent } from './bots/opportunist-finisher.js';
-export { default as MirrorAdaptAgent } from './bots/mirror-adapt.js';
-export { default as HighVarianceGambitAgent } from './bots/high-variance-gambit.js';
+import AlphaAgent from './bots/alpha';
+import ExampleAgent from './bots/example';
+import RandomAgent from './bots/random';

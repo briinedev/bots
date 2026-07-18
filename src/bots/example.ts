@@ -10,9 +10,9 @@ export default class ExampleAgent extends BriineAgent {
         ally: Character[],      // Characters you've already selected.
         enemy: Character[],     // Characters your enemy has selected.
     ): Character {
-        // This agent returns the first available Character from server.
+        // This agent returns the first available character from the server.
         //
-        // You could also choose randomly, or prioritize Characters that
+        // You could also choose randomly, or prioritize characters that
         // align with your intended strategy.
         return available[0];
     }
@@ -21,23 +21,23 @@ export default class ExampleAgent extends BriineAgent {
     chooseSpells(
         available: Spell[], // Spells available to be selected.
         ally: Character[],  // Characters you have selected.
-        enemy: Character[], // Characters your enemy has selected.
+        enemy: Character[]  // Characters your enemy has selected.
     ): Spell[] {
-        // This agent returns all available spells from server.
-        // Server will truncate this selection automatically.
+        // This agent returns all available spells from the server.
+        // The server will truncate this selection automatically.
         return available;
     }
 
     // Choose action based on match status.
     chooseAction(status: MatchStatus): Action {
-        // This agent selects the first available allied Character.
+        // This agent selects the first available allied character.
         // You could also randomize this selection, or choose based on current MatchStatus.
         const source = status.sources[0];
 
-        // This agent selects the first available enemy Character.
+        // This agent selects the first available enemy character.
         //
-        // Some actions are multi-target. Pass an array of Characters to select multiple.
-        // Allied Characters are also targetable, such as for healing spells.
+        // Some actions are multi-target. Pass an array of characters to select multiple.
+        // Allied characters are also targetable, such as for healing spells.
         const target = status.targets[0];
 
         // This agent selects the first available Attack.
@@ -48,7 +48,7 @@ export default class ExampleAgent extends BriineAgent {
     }
 }
 
-// Configure your Agent with values from briine.com.
+// Configure your agent with values from briine.com.
 // Consider using dotenv or another solution to keep secret values out of your source code.
 BriineAgent.register(
     new ExampleAgent(
