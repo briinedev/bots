@@ -37,7 +37,7 @@ function averageHp(characters: Character[]): number {
 }
 
 function joinSpellText(spell: Spell): string {
-    return [spell.id, spell.element, spell.description, ...spell.effects.map(effect => `${effect.name} ${effect.description}`)].join(' ');
+    return [spell.id, spell.element, spell.description, ...(spell.effects ?? []).map(effect => `${effect.name} ${effect.description}`)].join(' ');
 }
 
 function joinCharacterText(character: Character): string {

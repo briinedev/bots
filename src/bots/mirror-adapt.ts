@@ -37,7 +37,7 @@ function averageHp(characters: Character[]): number {
 }
 
 function joinSpellText(spell: Spell): string {
-    return [spell.id, spell.element, spell.description, ...spell.effects.map(effect => `${effect.name} ${effect.description}`)].join(' ');
+    return [spell.id, spell.element, spell.description, ...(spell.effects ?? []).map(effect => `${effect.name} ${effect.description}`)].join(' ');
 }
 
 function joinCharacterText(character: Character): string {
@@ -237,7 +237,7 @@ const MirrorAdaptAgent = createStrategicAgent({
             { terms: ['mirror', 'copy', 'adapt', 'shift', 'swap', 'flex', 'balance'], weight: 18 },
             { terms: ['heal', 'ward', 'damage', 'control'], weight: 4 },
         ])
-        + spell.effects.length * 2
+        + (spell.effects ?? []).length * 2
         + spell.maxTargets
     ),
     sourceScore: source => source.hp + source.stamina + source.attacks.length * 2 + source.effects.length * 2,

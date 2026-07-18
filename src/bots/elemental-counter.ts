@@ -37,7 +37,7 @@ function averageHp(characters: Character[]): number {
 }
 
 function joinSpellText(spell: Spell): string {
-    return [spell.id, spell.element, spell.description, ...spell.effects.map(effect => `${effect.name} ${effect.description}`)].join(' ');
+    return [spell.id, spell.element, spell.description, ...(spell.effects ?? []).map(effect => `${effect.name} ${effect.description}`)].join(' ');
 }
 
 function joinCharacterText(character: Character): string {
@@ -238,7 +238,7 @@ const ElementalCounterAgent = createStrategicAgent({
             { terms: ['element', 'counter', 'shift', 'adapt', 'mirror', 'change'], weight: 14 },
             { terms: ['fire', 'water', 'earth', 'wind', 'light', 'dark', 'ice', 'storm', 'poison'], weight: 4 },
         ])
-        + new Set(spell.effects.map(effect => effect.name.toLowerCase())).size * 2
+        + new Set((spell.effects ?? []).map(effect => effect.name.toLowerCase())).size * 2
         + spell.maxTargets
     ),
     sourceScore: source => source.attacks.length * 2 + source.stamina + source.effects.length,
