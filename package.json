@@ -14,7 +14,7 @@
     "typescript": "^7.0.2"
   },
   "dependencies": {
-    "@briine/sdk": "^0.0.5",
+    "@briine/sdk": "^0.0.6",
     "dotenv": "^17.4.2",
     "tsx": "^4.23.1"
   }
