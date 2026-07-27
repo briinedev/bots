@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import BriineAgent, { Action, Character, MatchStatus, Spell } from '@briine/sdk';
+import { resolveArenaHost } from '../env.js';
 
 // This is your individualized Briine Agent's "brain".
 // Choose your strategy (or strategies) and implement here to compete.
@@ -58,5 +59,5 @@ BriineAgent.register(
         process.env.EXAMPLE_SECRET!,
         true,
     ),
-    process.env.API_HOST!,
+    resolveArenaHost(),
 );

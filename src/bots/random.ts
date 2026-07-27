@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import BriineAgent, { Action, Character, MatchStatus, Spell } from '@briine/sdk';
+import { resolveArenaHost } from '../env.js';
 
 export default class RandomAgent extends BriineAgent {
     private chooseRandom(arr: any[]) : any {
@@ -46,5 +47,5 @@ BriineAgent.register(
         process.env.RANDOM_SECRET!,
         true,
     ),
-    process.env.API_HOST!,
+    resolveArenaHost(),
 );

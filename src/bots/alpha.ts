@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import BriineAgent, { Action, Character, MatchStatus, Spell } from '@briine/sdk';
+import { resolveArenaHost } from '../env.js';
 
 type ActionKind = 'attack' | 'spell' | 'defend';
 
@@ -228,5 +229,5 @@ BriineAgent.register(
         process.env.ALPHA_SECRET!,
         true,
     ),
-    process.env.API_HOST!,
+    resolveArenaHost(),
 );
